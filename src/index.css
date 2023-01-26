@@ -1,13 +1,94 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,600&display=swap");
+body,
+html {
+  background: #838383;
+  color: #4b4b4b;
+  font-family: "Prompt", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+h1 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: "Prompt", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+#header {
+  padding: 1rem;
+  background-image: url("../../assets/bg-header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+#header .header__author {
+  align-self: flex-end;
+  color: #999999;
+}
+#header .header__content .content__title {
+  padding: 1rem 0;
+  font-size: calc(2rem + 5vw);
+  text-transform: uppercase;
+}
+#header .header__content .content__title .title__year {
+  display: flex;
+  align-items: center;
+  font-size: calc(4.2rem + 5vw);
+}
+#header .header__content .content__title .title__year .year__icon {
+  color: #a5486c;
+}
+#header .header__content .content__info {
+  padding: 1rem 0;
+  width: 70%;
+  font-size: 1.2rem;
+}
+#header .header__button {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.3rem 0.2rem 2rem;
+  border-radius: 1rem;
+  background-color: #c9c9c9;
+  color: #838383;
+}
+#header .header__button .button__icon {
+  margin-left: 1rem;
+  padding: 0.2rem;
+  font-size: 2rem;
+  color: #a5486c;
+  background: #4b4b4b;
+  border-radius: 0.8rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #header {
+    background-position: 0px -700px;
+  }
+}/*# sourceMappingURL=index.css.map */

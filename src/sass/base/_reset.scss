@@ -1,0 +1,35 @@
+@use "../utilities/variables";
+
+// ------ Estilos del documento
+body,
+html {
+  background: variables.$color-primary;
+  color: variables.$color-secondary;
+  font-family: variables.$font;
+}
+
+// ------ Estilos de reseteo para elementos
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: variables.$font;
+}
+
+img {
+  max-width: 100%;
+}

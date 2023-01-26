@@ -1,0 +1,86 @@
+
+@use "../utilities/variables";
+
+#header {
+    padding: 1rem;
+    background-image: url("../../assets/bg-header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+
+    .header__author {
+        align-self: flex-end;
+        color: #999999;
+    }
+
+    .header__content {
+        .content__title {
+            padding: 1rem 0;
+            font-size: calc(2rem + 5vw);
+            text-transform: uppercase;
+            
+    
+            .title__year {
+                display: flex;
+                align-items: center;
+                font-size: calc(4.2rem + 5vw);
+
+                .year__icon {
+                    color: #a5486c;
+                }
+            }
+        }
+    
+        .content__info {
+            padding: 1rem 0;
+            width: 70%;
+            font-size: 1.2rem;
+        }
+    }
+
+    .header__button {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.2rem;
+        padding: .2rem .3rem .2rem 2rem;
+        border-radius: 1rem;
+
+        background-color: variables.$color-contrast;
+        color: variables.$color-primary;
+
+        .button__icon {
+            margin-left: 1rem;
+            padding: .2rem;
+            font-size: 2rem;
+            
+            color: #a5486c;
+            background: variables.$color-secondary;
+            border-radius: .8rem;
+        }
+    }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    #header {
+        background-position: 0px -700px;
+    }
+}
