@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import imgExample from "../assets/example.png";
 import "../index.scss";
-import Porpuse from "./Porpuse";
+// import Porpuse from "./Porpuse";
 import PorpuseForm from "./PorpuseForm";
 
 const Dashboard = ({ next }) => {
