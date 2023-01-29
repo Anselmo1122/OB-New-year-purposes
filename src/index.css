@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,600&display=swap");
-body,
-html {
-  background: #838383;
-  color: #4b4b4b;
-  font-family: "Prompt", sans-serif;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #bd7096, #6781a5, #cdcbeb, #bd7096);
+  color: #4b4b4b;
+  font-family: "Prompt", sans-serif;
 }
 
 h1 {
@@ -31,7 +31,70 @@ img {
   max-width: 100%;
 }
 
+input,
+textarea {
+  outline: none;
+  border: none;
+  margin: 0.2rem 0 1rem 0;
+  width: 100%;
+  display: block;
+  font-family: "Prompt", sans-serif;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::-moz-placeholder {
+  font-family: "Prompt", sans-serif;
+}
+
+textarea:-ms-input-placeholder {
+  font-family: "Prompt", sans-serif;
+}
+
+textarea::placeholder {
+  font-family: "Prompt", sans-serif;
+}
+
+input[type=file] {
+  position: relative;
+}
+
+input[type=file]::before {
+  content: "";
+  color: rgb(255, 255, 255);
+  position: absolute;
+  width: 91%;
+  border-radius: 6px;
+  border: 11px solid;
+}
+
+input[type=file]::after {
+  content: "Select an image";
+  color: #c9c9c9;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+::-moz-placeholder {
+  color: #c9c9c9;
+}
+
+:-ms-input-placeholder {
+  color: #c9c9c9;
+}
+
+::placeholder {
+  color: #c9c9c9;
+}
+
 #header {
+  position: absolute;
+  z-index: 10;
   padding: 1rem;
   background-image: url("../../assets/bg-header.jpg");
   background-size: cover;
@@ -65,21 +128,22 @@ img {
   font-size: 1.2rem;
 }
 #header .header__button {
+  margin-bottom: 1.5rem;
   display: inline-flex;
   align-items: center;
   font-size: 1.2rem;
   padding: 0.2rem 0.3rem 0.2rem 2rem;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   background-color: #c9c9c9;
   color: #838383;
 }
 #header .header__button .button__icon {
   margin-left: 1rem;
   padding: 0.2rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #a5486c;
   background: #4b4b4b;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -91,4 +155,104 @@ img {
   #header {
     background-position: 0px -700px;
   }
+}
+#dashboard {
+  height: 100vh;
+  padding: 1rem;
+  position: relative;
+  z-index: 5;
+}
+#dashboard .dashboard__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem;
+  padding-right: 1rem;
+  border-radius: 1.2rem;
+  background-color: #c9c9c9;
+}
+#dashboard .dashboard__button .button__icon {
+  padding: 0.2rem;
+  font-size: 2.5rem;
+  color: #a5486c;
+  background: #4b4b4b;
+  box-shadow: 1px 1px 10px 0 #7c7c7c;
+  border-radius: 1rem;
+}
+
+.form {
+  position: absolute;
+  bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #c9c9c9;
+  box-shadow: 1px 1px 10px 0 #7c7c7c;
+}
+.form .form__button-display {
+  padding: 0.6rem;
+  padding-bottom: 0.2rem;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  border-radius: 50% 50% 0 0;
+  bottom: 100%;
+  font-size: 1.5rem;
+  background-color: #c9c9c9;
+  cursor: pointer;
+}
+.form .form__button-display::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  z-index: -1;
+  border-bottom-left-radius: 2rem;
+  box-shadow: -12px 12px 0 10px #c9c9c9;
+  padding: 1rem;
+}
+.form .form__button-display::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  z-index: -1;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 12px 12px 0 10px #c9c9c9;
+  padding: 1rem;
+}
+.form .form__title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font: 500 normal 1.5rem "Prompt", sans-serif;
+}
+.form .form__input label {
+  margin-bottom: 0.4rem;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #4b4b4b;
+  color: #a5486c;
+}
+.form .form__input #name {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.form .form__input #description {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.form .form__input #image::before {
+  border-radius: 1rem;
+}
+.form .form__button {
+  border-radius: 1.2rem;
+  border: 2px solid #a5486c;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  box-shadow: 1px 1px 10px 0 #7c7c7c;
+}
+.form .form__button .button__icon {
+  margin-left: 0.4rem;
+  font-size: 1.3rem;
 }/*# sourceMappingURL=index.css.map */

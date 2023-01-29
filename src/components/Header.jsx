@@ -2,11 +2,21 @@ import React from 'react'
 import "../index.scss"
 import { BsArrowRight } from "react-icons/bs";
 import { GiTargetShot } from "react-icons/gi";
+import { motion } from 'framer-motion';
 
+let headerAnimate = { 
+  x: "-100%",
+  opacity: 0
+}
 
-const Header = () => {
+const Header = ({ next }) => {
+
   return (
-    <header id='header'>
+    <motion.header 
+      id='header'
+      animate={next.next ? headerAnimate : {}}
+      transition={{ duration: ".5" }}
+    >
       <a 
         className='header__author' 
         href='https://anselmo-del-hoyo.netlify.app'
@@ -28,11 +38,11 @@ const Header = () => {
           Make a list of your porpuses for this year.
         </p>
       </article>
-      <button className='header__button'>
+      <button onClick={ () => { next.setNext(!next.next )} } className='header__button'>
         Continue
         <BsArrowRight className='button__icon' />
       </button>
-    </header>
+    </motion.header>
   )
 }
 

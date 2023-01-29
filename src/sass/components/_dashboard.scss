@@ -1,0 +1,27 @@
+@use "../utilities/variables";
+
+#dashboard {
+    height: 100vh;
+    padding: 1rem;
+    position: relative;
+    z-index: 5;
+
+    .dashboard__button {
+        display: inline-flex;
+        align-items: center;
+        padding: .2rem;
+        padding-right: 1rem;
+        border-radius: 1.2rem;
+        background-color: variables.$color-contrast;
+
+        .button__icon {
+            padding: .2rem;
+            font-size: 2.5rem;
+            
+            color: variables.$color-red;
+            background: variables.$color-secondary;
+            box-shadow: 1px 1px 10px 0 #7c7c7c;
+            border-radius: 1rem;
+        }
+    }
+}

@@ -1,19 +1,26 @@
 @use "../utilities/variables";
 
 // ------ Estilos del documento
-body,
-html {
-  background: variables.$color-primary;
-  color: variables.$color-secondary;
-  font-family: variables.$font;
-}
-
-// ------ Estilos de reseteo para elementos
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  background: linear-gradient(
+    to bottom, 
+    variables.$bg-color1, 
+    variables.$bg-color2,
+    variables.$bg-color3,
+    variables.$bg-color1,
+  );
+  color: variables.$color-secondary;
+  font-family: variables.$font;
+}
+
+// ------ Estilos de reseteo para elementos
 
 h1 {
   line-height: 1.2;
@@ -32,4 +39,46 @@ button {
 
 img {
   max-width: 100%;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+  margin: .2rem 0 1rem 0;
+  width: 100%;
+  display: block;
+  font-family: variables.$font;
+}
+
+textarea {
+  resize: none;
+}
+textarea::placeholder {
+  font-family: variables.$font;
+}
+
+input[type="file"] {
+  position: relative;
+}
+input[type="file"]::before {
+  content: "";
+  color: rgb(255, 255, 255);
+  position: absolute;
+  width: 91%;
+  border-radius: 6px;
+  border: 11px solid;
+}
+input[type="file"]::after {
+  content: "Select an image";
+  color: variables.$color-contrast;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+::placeholder {
+  color: variables.$color-contrast;
 }

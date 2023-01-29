@@ -1,0 +1,87 @@
+
+@use "../utilities/variables";
+
+.form {
+    position: absolute;
+    bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: variables.$color-contrast;
+    box-shadow: 1px 1px 10px 0 #7c7c7c;
+
+    .form__button-display {
+        padding: .6rem;
+        padding-bottom: .2rem;
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        border-radius: 50% 50% 0 0;
+        bottom: 100%;
+        font-size: 1.5rem;
+        background-color: variables.$color-contrast;
+        cursor: pointer;
+    }
+    .form__button-display::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        z-index: -1;
+        border-bottom-left-radius: 2rem;
+        box-shadow: -12px 12px 0 10px variables.$color-contrast;
+        padding: 1rem;
+    }
+    .form__button-display::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 100%;
+        z-index: -1;
+        border-bottom-right-radius: 2rem;
+        box-shadow: 12px 12px 0 10px variables.$color-contrast;
+        padding: 1rem;
+    }
+
+    .form__title {
+        margin-bottom: 1rem;
+        text-align: center;
+        font: 500 normal 1.5rem variables.$font;
+    }
+
+    .form__input {
+        label {
+            margin-bottom: .4rem;
+            padding: 0 .5rem;
+            border-radius: .5rem;
+            background-color: variables.$color-secondary;
+            color: variables.$color-red;
+        }
+        #name {
+            padding: .5rem;
+            border-radius: .5rem;
+        }
+        #description {
+            padding: .5rem;
+            border-radius: .5rem;
+        }
+        #image::before {
+            border-radius: 1rem;
+        }
+    }
+
+    .form__button {
+        border-radius: 1.2rem;
+        border: 2px solid variables.$color-red;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        padding: .5rem 2rem;
+        font-size: 1rem;
+        box-shadow: 1px 1px 10px 0 #7c7c7c;
+
+        .button__icon {
+            margin-left: .4rem;
+            font-size: 1.3rem;
+        }
+    }
+}
