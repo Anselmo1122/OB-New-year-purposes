@@ -1,0 +1,37 @@
+
+@use "../utilities/variables";
+
+.porpuse {
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow: hidden;
+
+    position: relative;
+
+    border-radius: 1rem;
+    // background: variables.$color-secondary;
+    // color: variables.$color-contrast;
+    box-shadow: 1px 1px 10px 0 #7c7c7c;
+
+    .porpuse__data {
+        position: relative;
+        z-index: 1;
+    }
+
+    img {
+        width: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        filter: opacity(.3) grayscale(40%); 
+    }
+}
+
+.porpuse:nth-child(odd) {
+    background: variables.$color-red;
+    color: variables.$color-contrast;
+}
+.porpuse:nth-child(even) {
+    background: variables.$color-secondary;
+    color: variables.$color-contrast;
+}

@@ -2,8 +2,9 @@
 @use "../utilities/variables";
 
 .form {
-    position: absolute;
+    position: fixed;
     bottom: 1rem;
+    z-index: 3;
     padding: 1rem;
     border-radius: 1rem;
     background-color: variables.$color-contrast;
@@ -17,9 +18,14 @@
         transform: translateX(50%);
         border-radius: 50% 50% 0 0;
         bottom: 100%;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        color: variables.$color-red;
         background-color: variables.$color-contrast;
         cursor: pointer;
+
+        .button-display__icon-active {
+            transform: rotate(180deg);
+        }
     }
     .form__button-display::after {
         content: "";

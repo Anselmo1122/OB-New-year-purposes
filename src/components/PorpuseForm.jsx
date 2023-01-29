@@ -1,5 +1,6 @@
+import { motion } from "framer-motion";
 import { nanoid } from "nanoid";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { IoMdAdd } from "react-icons/io"
 import "../index.scss";
@@ -7,6 +8,8 @@ import "../index.scss";
 // TODO: validar mejor los datos del formulario.
 
 const PorpuseForm = ({ porpuse }) => {
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const nameRef = useRef();
   const descriptionRef = useRef();
@@ -31,43 +34,85 @@ const PorpuseForm = ({ porpuse }) => {
     porpuse.setPorpuses([  newPorpuse, ...porpuse.porpuses ])
   }
 
+  const container = {
+    hidden: { y: "50vh" },
+    show: {
+      y: 0,
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.2
+      }
+    }
+  }
+  
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 }
+  }
+
   return (
-    <form className="form">
-      <div className="form__button-display">
-        <AiOutlineArrowUp className="button-display__icon" />
+    <motion.form 
+      className="form"
+      variants={container}
+      initial="hidden"
+      animate={ isOpen ? "show" : "" }
+    >
+      <div 
+        className="form__button-display"
+        onClick={ () => { setIsOpen(!isOpen) } }
+      >
+        <AiOutlineArrowUp 
+          className={ isOpen 
+            ? "button-display__icon-active" 
+            : "button-display__icon" 
+          } 
+        />
       </div>
       <h3 className="form__title">Create a new porpuse</h3>
-      <div className="form__input">
+      <motion.div 
+        className="form__input"
+        variants={item}
+        whileFocus={{ scale: 1.05 }}
+      >
         <label htmlFor="name">Name</label>
-        <input 
+        <motion.input 
           id="name" 
           type="text" 
           placeholder="Write porpuse name..." 
           required
           autoComplete="off"
           ref={nameRef}
+          whileFocus={{ scale: 1.05 }}
         />
-      </div>
-      <div className="form__input">
+      </motion.div>
+      <motion.div 
+        className="form__input"
+        variants={item}
+      >
         <label htmlFor="description">Description</label>
-        <textarea 
+        <motion.textarea 
           id="description" 
           placeholder="Write a description..."
           required 
           autoComplete="off"
           ref={descriptionRef}
+          whileFocus={{ scale: 1.05 }}
         />
-      </div>
-      <div className="form__input">
+      </motion.div>
+      <motion.div 
+        className="form__input"
+        variants={item}
+      >
         <label htmlFor="img">Image</label>
-        <input
+        <motion.input
           id="img"
           type="file"
           accept=".png"
           placeholder="Select an image that represent your porpuse..."
           ref={imageRef}
+          whileFocus={{ scale: 1.05 }}
         />
-      </div>
+      </motion.div>
       <button 
         className="form__button"
         onClick={(e) => { addPorpuse(e) }}
@@ -75,7 +120,7 @@ const PorpuseForm = ({ porpuse }) => {
         Add porpuse
         <IoMdAdd className="button__icon" />
       </button>
-    </form>
+    </motion.form>
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import imgExample from "../assets/example.png";
 import "../index.scss";
-// import Porpuse from "./Porpuse";
+import Porpuse from "./Porpuse";
 import PorpuseForm from "./PorpuseForm";
 
 const Dashboard = ({ next }) => {
@@ -22,7 +22,7 @@ const Dashboard = ({ next }) => {
         <BsArrowLeft className='button__icon' />
       </button>
       <PorpuseForm porpuse={{ porpuses, setPorpuses }} />
-      {/* <section className="list">
+      <section className="list">
         {
           porpuses.map((porpuse, id) => {
             return (
@@ -33,7 +33,7 @@ const Dashboard = ({ next }) => {
             )
           })
         }
-      </section> */}
+      </section>
     </section>
   );
 };

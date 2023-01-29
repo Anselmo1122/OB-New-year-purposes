@@ -93,6 +93,7 @@ input[type=file]::after {
 }
 
 #header {
+  width: 100vw;
   position: absolute;
   z-index: 10;
   padding: 1rem;
@@ -180,8 +181,9 @@ input[type=file]::after {
 }
 
 .form {
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
+  z-index: 3;
   padding: 1rem;
   border-radius: 1rem;
   background-color: #c9c9c9;
@@ -195,9 +197,13 @@ input[type=file]::after {
   transform: translateX(50%);
   border-radius: 50% 50% 0 0;
   bottom: 100%;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  color: #a5486c;
   background-color: #c9c9c9;
   cursor: pointer;
+}
+.form .form__button-display .button-display__icon-active {
+  transform: rotate(180deg);
 }
 .form .form__button-display::after {
   content: "";
@@ -255,4 +261,34 @@ input[type=file]::after {
 .form .form__button .button__icon {
   margin-left: 0.4rem;
   font-size: 1.3rem;
+}
+
+.porpuse {
+  margin: 1rem 0;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 10px 0 #7c7c7c;
+}
+.porpuse .porpuse__data {
+  position: relative;
+  z-index: 1;
+}
+.porpuse img {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  filter: opacity(0.3) grayscale(40%);
+}
+
+.porpuse:nth-child(odd) {
+  background: #a5486c;
+  color: #c9c9c9;
+}
+
+.porpuse:nth-child(even) {
+  background: #4b4b4b;
+  color: #c9c9c9;
 }/*# sourceMappingURL=index.css.map */
