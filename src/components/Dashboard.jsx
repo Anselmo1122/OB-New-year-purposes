@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import imgExample from "../assets/example.png";
 import "../index.scss";
 import Porpuse from "./Porpuse";
 import PorpuseForm from "./PorpuseForm";
 
+const initialState = JSON.parse(localStorage.getItem("porpuses"));
+
 const Dashboard = ({ next }) => {
-  const [porpuses, setPorpuses] = useState([
-    {
-      id: "34tnfjkne3t8jgrju4",
-      name: "Porpuse example",
-      description: `This is the description 
-      of my porpuses, This is the description 
-      of my porpuses, This is the description 
-      of my porpuses. `,
-      image: imgExample,
-      complete: false,
-      date: new Date().toDateString(),
-    }
-  ])
+  const [porpuses, setPorpuses] = useState(initialState || [])
+
+  useEffect(() => {
+    window.localStorage.setItem("porpuses", JSON.stringify(porpuses), [porpuses])
+  }, [porpuses])
 
   const deletePorpuse = (id) => {
     const currentPurposes = porpuses.filter((porpuse) => porpuse.id !== id);
@@ -27,7 +20,7 @@ const Dashboard = ({ next }) => {
   const completePorpuse = (id) => {
     const currentPurposes = porpuses.map((porpuse)=>{
       if(porpuse.id === id) porpuse.complete = !porpuse.complete;
-      return porpuse
+      return porpuse;
     })
     setPorpuses(currentPurposes);
   }
