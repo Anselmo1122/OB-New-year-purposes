@@ -6,10 +6,11 @@
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(to bottom, #bd7096, #6781a5, #cdcbeb, #bd7096);
-  color: #4b4b4b;
+  color: #e7e7e7;
   font-family: "Prompt", sans-serif;
+  background-image: url("../../assets/bg-dashboard.jpg");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
@@ -72,7 +73,7 @@ input[type=file]::before {
 
 input[type=file]::after {
   content: "Select an image";
-  color: #c9c9c9;
+  color: #acacac;
   width: 100%;
   position: absolute;
   left: 0;
@@ -81,15 +82,15 @@ input[type=file]::after {
 }
 
 ::-moz-placeholder {
-  color: #c9c9c9;
+  color: #acacac;
 }
 
 :-ms-input-placeholder {
-  color: #c9c9c9;
+  color: #acacac;
 }
 
 ::placeholder {
-  color: #c9c9c9;
+  color: #acacac;
 }
 
 #header {
@@ -135,7 +136,7 @@ input[type=file]::after {
   font-size: 1.2rem;
   padding: 0.2rem 0.3rem 0.2rem 2rem;
   border-radius: 1.2rem;
-  background-color: #c9c9c9;
+  background-color: #acacac;
   color: #838383;
 }
 #header .header__button .button__icon {
@@ -143,7 +144,7 @@ input[type=file]::after {
   padding: 0.2rem;
   font-size: 2.5rem;
   color: #a5486c;
-  background: #4b4b4b;
+  background: #e7e7e7;
   border-radius: 1rem;
 }
 
@@ -154,11 +155,11 @@ input[type=file]::after {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   #header {
-    background-position: 0px -700px;
+    background-position: 0px -100px;
   }
 }
 #dashboard {
-  height: 100vh;
+  min-height: 100vh;
   padding: 1rem;
   position: relative;
   z-index: 5;
@@ -169,14 +170,14 @@ input[type=file]::after {
   padding: 0.2rem;
   padding-right: 1rem;
   border-radius: 1.2rem;
-  background-color: #c9c9c9;
+  background-color: #acacac;
 }
 #dashboard .dashboard__button .button__icon {
   padding: 0.2rem;
   font-size: 2.5rem;
   color: #a5486c;
-  background: #4b4b4b;
-  box-shadow: 1px 1px 10px 0 #7c7c7c;
+  background: #e7e7e7;
+  box-shadow: 1px 1px 10px 0 #353535;
   border-radius: 1rem;
 }
 
@@ -186,8 +187,8 @@ input[type=file]::after {
   z-index: 3;
   padding: 1rem;
   border-radius: 1rem;
-  background-color: #c9c9c9;
-  box-shadow: 1px 1px 10px 0 #7c7c7c;
+  background-color: #acacac;
+  box-shadow: 1px 1px 10px 0 #353535;
 }
 .form .form__button-display {
   padding: 0.6rem;
@@ -199,7 +200,7 @@ input[type=file]::after {
   bottom: 100%;
   font-size: 1.7rem;
   color: #a5486c;
-  background-color: #c9c9c9;
+  background-color: #acacac;
   cursor: pointer;
 }
 .form .form__button-display .button-display__icon-active {
@@ -212,7 +213,7 @@ input[type=file]::after {
   left: 100%;
   z-index: -1;
   border-bottom-left-radius: 2rem;
-  box-shadow: -12px 12px 0 10px #c9c9c9;
+  box-shadow: -12px 12px 0 10px #acacac;
   padding: 1rem;
 }
 .form .form__button-display::before {
@@ -222,7 +223,7 @@ input[type=file]::after {
   right: 100%;
   z-index: -1;
   border-bottom-right-radius: 2rem;
-  box-shadow: 12px 12px 0 10px #c9c9c9;
+  box-shadow: 12px 12px 0 10px #acacac;
   padding: 1rem;
 }
 .form .form__title {
@@ -234,7 +235,7 @@ input[type=file]::after {
   margin-bottom: 0.4rem;
   padding: 0 0.5rem;
   border-radius: 0.5rem;
-  background-color: #4b4b4b;
+  background-color: #e7e7e7;
   color: #a5486c;
 }
 .form .form__input #name {
@@ -256,24 +257,64 @@ input[type=file]::after {
   margin: 0 auto;
   padding: 0.5rem 2rem;
   font-size: 1rem;
-  box-shadow: 1px 1px 10px 0 #7c7c7c;
+  box-shadow: 1px 1px 10px 0 #353535;
 }
 .form .form__button .button__icon {
   margin-left: 0.4rem;
   font-size: 1.3rem;
 }
 
+.porpuse-container {
+  position: relative;
+  margin: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: transparent;
+  border-radius: 1rem;
+  transform: rotate(-5deg);
+}
+
 .porpuse {
-  margin: 1rem 0;
+  height: 70px;
+  width: 80%;
   padding: 1rem;
   overflow: hidden;
   position: relative;
-  border-radius: 1rem;
-  box-shadow: 1px 1px 10px 0 #7c7c7c;
+  z-index: 2;
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 5px 1px 10px 0 #292929;
+  border-bottom: 1px solid #ffffff;
 }
 .porpuse .porpuse__data {
   position: relative;
   z-index: 1;
+  cursor: pointer;
+}
+.porpuse .porpuse__data .data__title {
+  font-weight: 500;
+  line-height: 0.9;
+}
+.porpuse .porpuse__data .data__date {
+  font-size: 0.8rem;
+}
+.porpuse .porpuse__data .data__description {
+  margin: 1rem 0;
+}
+.porpuse .porpuse__controls {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.porpuse .porpuse__controls .controls__button {
+  margin: 0 0.5rem;
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 1rem;
+  border: 2px solid #a5486c;
+  box-shadow: 1px 1px 10px 0 #353535;
 }
 .porpuse img {
   width: 50%;
@@ -284,11 +325,15 @@ input[type=file]::after {
 }
 
 .porpuse:nth-child(odd) {
-  background: #a5486c;
-  color: #c9c9c9;
+  background: #586d94;
+  color: #acacac;
 }
 
-.porpuse:nth-child(even) {
-  background: #4b4b4b;
-  color: #c9c9c9;
+.folder {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(158, 0, 47, 0.726);
+  position: absolute;
+  border-radius: 50% 0.7rem 1rem 1rem;
+  border-bottom: 1px solid #ffffff;
 }/*# sourceMappingURL=index.css.map */

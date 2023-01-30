@@ -8,16 +8,12 @@
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(
-    to bottom, 
-    variables.$bg-color1, 
-    variables.$bg-color2,
-    variables.$bg-color3,
-    variables.$bg-color1,
-  );
   color: variables.$color-secondary;
   font-family: variables.$font;
+
+  background-image: url("../../assets/bg-dashboard.jpg");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 // ------ Estilos de reseteo para elementos

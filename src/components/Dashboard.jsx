@@ -10,11 +10,27 @@ const Dashboard = ({ next }) => {
     {
       id: "34tnfjkne3t8jgrju4",
       name: "Porpuse example",
-      description: "this is the description",
+      description: `This is the description 
+      of my porpuses, This is the description 
+      of my porpuses, This is the description 
+      of my porpuses. `,
       image: imgExample,
+      complete: false,
       date: new Date().toDateString(),
     }
   ])
+
+  const deletePorpuse = (id) => {
+    const currentPurposes = porpuses.filter((porpuse) => porpuse.id !== id);
+    setPorpuses(currentPurposes);
+  }
+  const completePorpuse = (id) => {
+    const currentPurposes = porpuses.map((porpuse)=>{
+      if(porpuse.id === id) porpuse.complete = !porpuse.complete;
+      return porpuse
+    })
+    setPorpuses(currentPurposes);
+  }
 
   return (
     <section id="dashboard">
@@ -28,7 +44,9 @@ const Dashboard = ({ next }) => {
             return (
               <Porpuse 
                 key={ id }
-                data={ porpuse }   
+                data={ porpuse } 
+                deletePorpuse={ deletePorpuse }
+                completePorpuse={ completePorpuse }
               />
             )
           })

@@ -28,6 +28,7 @@ const PorpuseForm = ({ porpuse }) => {
       name: nameRef.current.value,
       description: descriptionRef.current.value,
       image: imgURL,
+      complete: false,
       date: new Date().toDateString()
     }
 

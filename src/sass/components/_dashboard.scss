@@ -1,7 +1,7 @@
 @use "../utilities/variables";
 
 #dashboard {
-    height: 100vh;
+    min-height: 100vh;
     padding: 1rem;
     position: relative;
     z-index: 5;
@@ -20,7 +20,7 @@
             
             color: variables.$color-red;
             background: variables.$color-secondary;
-            box-shadow: 1px 1px 10px 0 #7c7c7c;
+            box-shadow: 1px 1px 10px 0 #353535;
             border-radius: 1rem;
         }
     }

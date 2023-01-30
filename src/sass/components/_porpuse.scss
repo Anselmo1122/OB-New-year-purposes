@@ -1,21 +1,62 @@
 
 @use "../utilities/variables";
 
+.porpuse-container {
+    position: relative;
+    margin: 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: transparent;
+    border-radius: 1rem;
+    transform: rotate(-5deg);
+}
+
 .porpuse {
-    margin: 1rem 0;
+    height: 70px;
+    width: 80%;
     padding: 1rem;
     overflow: hidden;
 
     position: relative;
+    z-index: 2;
 
-    border-radius: 1rem;
-    // background: variables.$color-secondary;
-    // color: variables.$color-contrast;
-    box-shadow: 1px 1px 10px 0 #7c7c7c;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 5px 1px 10px 0 #292929;
+    border-bottom: 1px solid #ffffff;
 
     .porpuse__data {
         position: relative;
         z-index: 1;
+        cursor: pointer;
+
+        .data__title {
+            font-weight: 500;
+            line-height: .9;
+        }
+        .data__date {
+            font-size: .8rem;
+        }
+        .data__description {
+            margin: 1rem 0;
+        }
+    }
+
+    .porpuse__controls {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+
+        .controls__button {
+            margin: 0 .5rem;
+            padding: .3rem 1rem;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 1rem;
+            border: 2px solid variables.$color-red;
+            box-shadow: 1px 1px 10px 0 #353535;
+        }
     }
 
     img {
@@ -28,10 +69,15 @@
 }
 
 .porpuse:nth-child(odd) {
-    background: variables.$color-red;
+    background: #586d94;
     color: variables.$color-contrast;
 }
-.porpuse:nth-child(even) {
-    background: variables.$color-secondary;
-    color: variables.$color-contrast;
+
+.folder {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(158, 0, 47, 0.726);
+    position: absolute;
+    border-radius: 50% .7rem 1rem 1rem;
+    border-bottom: 1px solid #ffffff;
 }

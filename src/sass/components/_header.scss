@@ -34,7 +34,7 @@
                 font-size: calc(4.2rem + 5vw);
 
                 .year__icon {
-                    color: #a5486c;
+                    color: variables.$color-red;
                 }
             }
         }
@@ -62,7 +62,7 @@
             padding: .2rem;
             font-size: 2.5rem;
             
-            color: #a5486c;
+            color: variables.$color-red;
             background: variables.$color-secondary;
             border-radius: 1rem;
         }
@@ -85,6 +85,6 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     #header {
-        background-position: 0px -700px;
+        background-position: 0px -100px;
     }
 }
