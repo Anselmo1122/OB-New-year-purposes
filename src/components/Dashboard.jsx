@@ -3,6 +3,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import "../index.scss";
 import Porpuse from "./Porpuse";
 import PorpuseForm from "./PorpuseForm";
+import Rocket from "./Rocket";
 
 const initialState = JSON.parse(localStorage.getItem("porpuses"));
 
@@ -11,12 +12,13 @@ const Dashboard = ({ next }) => {
 
   useEffect(() => {
     window.localStorage.setItem("porpuses", JSON.stringify(porpuses), [porpuses])
-  }, [porpuses])
+  })
 
   const deletePorpuse = (id) => {
     const currentPurposes = porpuses.filter((porpuse) => porpuse.id !== id);
     setPorpuses(currentPurposes);
   }
+
   const completePorpuse = (id) => {
     const currentPurposes = porpuses.map((porpuse)=>{
       if(porpuse.id === id) porpuse.complete = !porpuse.complete;
@@ -31,20 +33,27 @@ const Dashboard = ({ next }) => {
         <BsArrowLeft className='button__icon' />
       </button>
       <PorpuseForm porpuse={{ porpuses, setPorpuses }} />
-      <section className="list">
-        {
-          porpuses.map((porpuse, id) => {
-            return (
-              <Porpuse 
-                key={ id }
-                data={ porpuse } 
-                deletePorpuse={ deletePorpuse }
-                completePorpuse={ completePorpuse }
-              />
-            )
-          })
-        }
-      </section>
+      <div className="dashboard__content">
+        <section className="list">
+          {
+            porpuses.length > 0 
+              ? porpuses.map((porpuse, id) => {
+              return (
+                <Porpuse 
+                  key={ id }
+                  data={ porpuse } 
+                  deletePorpuse={ deletePorpuse }
+                  completePorpuse={ completePorpuse }
+                />
+              )
+              })
+              : <p className="message">Add purposes to the list.</p>
+          }
+        </section>
+        <Rocket 
+          porpuse={{ porpuses, setPorpuses }}
+        />
+      </div>
     </section>
   );
 };

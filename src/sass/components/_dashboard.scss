@@ -3,6 +3,7 @@
 #dashboard {
     min-height: 100vh;
     padding: 1rem;
+    padding-bottom: 5rem;
     position: relative;
     z-index: 5;
 
@@ -22,6 +23,27 @@
             background: variables.$color-secondary;
             box-shadow: 1px 1px 10px 0 #353535;
             border-radius: 1rem;
+        }
+    }
+
+    .dashboard__content {
+        display: flex;
+        justify-content: flex-end;
+
+        .list {
+            margin: 0 auto;
+            max-width: 600px;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+    
+            .message {
+                opacity: .2;
+                text-align: center;
+                font-size: 1.5rem;
+                margin: 30vh auto;
+            }
         }
     }
 }

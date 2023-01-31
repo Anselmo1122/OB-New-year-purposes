@@ -1,0 +1,27 @@
+
+@use "../utilities/variables";
+
+.rocket {
+    position: fixed;
+    left: 0;
+    margin-top: 3rem;
+    width: 20%;
+    max-width: 100px;
+
+    .rocket__carrousel {
+        margin: auto;
+        height: 70vh;
+        width: 4px;
+        background: #cccccc;
+        position: relative;
+
+        img {
+            max-width: 200px;
+            width: 95px;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
+
+}

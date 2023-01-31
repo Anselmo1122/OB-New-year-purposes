@@ -14,6 +14,7 @@ const PorpuseForm = ({ porpuse }) => {
   const nameRef = useRef();
   const descriptionRef = useRef();
   const imageRef = useRef();
+  const colorRef = useRef()
 
   const addPorpuse = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const PorpuseForm = ({ porpuse }) => {
       name: nameRef.current.value,
       description: descriptionRef.current.value,
       image: imgURL,
+      color: colorRef.current.value,
       complete: false,
       date: new Date().toDateString()
     }
@@ -36,9 +38,10 @@ const PorpuseForm = ({ porpuse }) => {
   }
 
   const container = {
-    hidden: { y: "50vh" },
+    hidden: { y: "90%", x: "50%" },
     show: {
       y: 0,
+      x: "50%",
       transition: {
         delayChildren: 0.2,
         staggerChildren: 0.2
@@ -111,6 +114,19 @@ const PorpuseForm = ({ porpuse }) => {
           accept=".png"
           placeholder="Select an image that represent your porpuse..."
           ref={imageRef}
+          whileFocus={{ scale: 1.05 }}
+        />
+      </motion.div>
+      <motion.div
+        className="form__input"
+        variants={item}
+      >
+        <label htmlFor="color">Color</label>
+        <motion.input
+          id="color"
+          type="color"
+          placeholder="Select an color that represent your porpuse..."
+          ref={colorRef}
           whileFocus={{ scale: 1.05 }}
         />
       </motion.div>

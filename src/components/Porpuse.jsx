@@ -16,6 +16,7 @@ const Porpuse = ({ data, deletePorpuse, completePorpuse }) => {
     <motion.article className="porpuse-container">
       <motion.div 
         className="porpuse"
+        style={{ background: data.color }}
         initial={{ height: 65 }}
         animate={ isOpen ? "open" : "closed" }
         variants={variants}

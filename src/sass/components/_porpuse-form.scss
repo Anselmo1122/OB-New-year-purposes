@@ -2,9 +2,14 @@
 @use "../utilities/variables";
 
 .form {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
     position: fixed;
     bottom: 1rem;
+    right: 50%;
     z-index: 3;
+    transform: translateX(50%);
     padding: 1rem;
     border-radius: 1rem;
     background-color: variables.$color-contrast;
