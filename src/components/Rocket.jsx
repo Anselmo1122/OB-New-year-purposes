@@ -3,11 +3,24 @@ import rocketImg from "../assets/rocket.png";
 import "../index.scss";
 import { motion } from 'framer-motion';
 
-const Rocket = ({ porpuse }) => {
+const Rocket = ({ porpuse, completed }) => {
   const porpusesCompleted = porpuse.porpuses.filter((porpuse) => porpuse.complete === true)
-  const percentage = `${(100 / (porpuse.porpuses.length / porpusesCompleted.length) - 35)}%` 
   
-  console.log(percentage, porpusesCompleted)
+  const getPercentage = () => {
+    let percentage = `${
+      porpuse.porpuses.lenght !== 0 && porpusesCompleted !== 0
+        ? (100 / (porpuse.porpuses.length / porpusesCompleted.length) - 30)
+        : -20
+    }%`
+    if (percentage === "70%") {
+      completed(true)
+      setTimeout(()=>{
+        completed(false)
+      }, 15000)
+      percentage = "69%"
+    }
+    return percentage;
+  }
 
   return (
     <section className='rocket'>
@@ -15,7 +28,8 @@ const Rocket = ({ porpuse }) => {
         <motion.img 
           src={rocketImg} 
           alt="rocket" 
-          animate={{ bottom: percentage }}
+          initial={{ bottom: "-30%" }}
+          animate={{ bottom: getPercentage() }}
         />
       </motion.div>
     </section>

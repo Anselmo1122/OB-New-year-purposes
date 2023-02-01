@@ -1,14 +1,19 @@
+import { useWindowSize } from "@react-hook/window-size";
 import React, { useState, useEffect } from "react";
+import Confetti from "react-confetti";
 import { BsArrowLeft } from "react-icons/bs";
 import "../index.scss";
 import Porpuse from "./Porpuse";
 import PorpuseForm from "./PorpuseForm";
 import Rocket from "./Rocket";
 
+
 const initialState = JSON.parse(localStorage.getItem("porpuses"));
 
 const Dashboard = ({ next }) => {
   const [porpuses, setPorpuses] = useState(initialState || [])
+  const [width, height] = useWindowSize();
+  const [porpusesCompleted, setPorpusesCompleted] = useState(false)
 
   useEffect(() => {
     window.localStorage.setItem("porpuses", JSON.stringify(porpuses), [porpuses])
@@ -26,6 +31,15 @@ const Dashboard = ({ next }) => {
     })
     setPorpuses(currentPurposes);
   }
+
+  if (porpusesCompleted) setTimeout(() => {
+    const currentPurposes = porpuses.map((porpuse)=>{
+      if(porpuse.complete === true) porpuse.complete = !porpuse.complete;
+      return porpuse;
+    })
+    setPorpuses(currentPurposes);
+    next.setNext(!next.next)
+  }, 15000)
 
   return (
     <section id="dashboard">
@@ -47,12 +61,24 @@ const Dashboard = ({ next }) => {
                 />
               )
               })
-              : <p className="message">Add purposes to the list.</p>
+              : <p className="message">Add purposes to <br /> the list.</p>
           }
         </section>
         <Rocket 
           porpuse={{ porpuses, setPorpuses }}
+          completed={setPorpusesCompleted}
+          redirect={next}
         />
+        {
+          porpusesCompleted
+            ? <Confetti 
+                width={width}
+                height={height}
+                run={porpusesCompleted}
+                tweenDuration={16000}
+              />
+            : ""
+        }
       </div>
     </section>
   );

@@ -161,6 +161,7 @@ input[type=file]::after {
 #dashboard {
   min-height: 100vh;
   padding: 1rem;
+  padding-bottom: 5rem;
   position: relative;
   z-index: 5;
 }
@@ -180,11 +181,34 @@ input[type=file]::after {
   box-shadow: 1px 1px 10px 0 #353535;
   border-radius: 1rem;
 }
+#dashboard .dashboard__content {
+  display: flex;
+  justify-content: flex-end;
+}
+#dashboard .dashboard__content .list {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#dashboard .dashboard__content .list .message {
+  opacity: 0.2;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 30vh auto;
+}
 
 .form {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
   position: fixed;
   bottom: 1rem;
+  right: 50%;
   z-index: 3;
+  transform: translateX(50%);
   padding: 1rem;
   border-radius: 1rem;
   background-color: #acacac;
@@ -265,8 +289,10 @@ input[type=file]::after {
 }
 
 .porpuse-container {
+  width: 100%;
+  min-width: 200px;
   position: relative;
-  margin: 5rem 0;
+  margin: 4rem 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -302,6 +328,8 @@ input[type=file]::after {
   margin: 1rem 0;
 }
 .porpuse .porpuse__controls {
+  position: relative;
+  z-index: 1;
   margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
@@ -336,4 +364,61 @@ input[type=file]::after {
   position: absolute;
   border-radius: 50% 0.7rem 1rem 1rem;
   border-bottom: 1px solid #ffffff;
+}
+
+.rocket {
+  position: fixed;
+  left: 0;
+  margin-top: 4rem;
+  width: 20%;
+  max-width: 100px;
+}
+.rocket .rocket__carrousel {
+  margin: auto;
+  height: 57vh;
+  width: 6px;
+  background: rgba(105, 105, 105, 0.4039215686);
+  position: relative;
+}
+.rocket .rocket__carrousel img {
+  max-width: 200px;
+  width: 86px;
+  position: absolute;
+  right: 50%;
+  z-index: 2;
+  transform: translateX(53%);
+  filter: hue-rotate(340deg);
+}
+.rocket .rocket__carrousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  border: 1px solid #00ffaa;
+  background-color: #426956;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.rocket .rocket__carrousel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  border: 1px solid #ff0000;
+  background-color: #581e30;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .rocket {
+    left: 20%;
+  }
 }/*# sourceMappingURL=index.css.map */
