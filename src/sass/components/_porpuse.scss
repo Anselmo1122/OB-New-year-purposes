@@ -1,7 +1,7 @@
 
 @use "../utilities/variables";
 
-.porpuse-container {
+.purpose-container {
     width: 100%;
     min-width: 200px;
     position: relative;
@@ -14,7 +14,7 @@
     transform: rotate(-5deg);
 }
 
-.porpuse {
+.purpose {
     height: 70px;
     width: 80%;
     padding: 1rem;
@@ -27,7 +27,7 @@
     box-shadow: 5px 1px 10px 0 #292929;
     border-bottom: 1px solid #ffffff;
 
-    .porpuse__data {
+    .purpose__data {
         position: relative;
         z-index: 1;
         cursor: pointer;
@@ -44,7 +44,7 @@
         }
     }
 
-    .porpuse__controls {
+    .purpose__controls {
         position: relative;
         z-index: 1;
         margin-top: 2rem;
@@ -72,7 +72,7 @@
     }
 }
 
-.porpuse:nth-child(odd) {
+.purpose:nth-child(odd) {
     background: #586d94;
     color: variables.$color-contrast;
 }

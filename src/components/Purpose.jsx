@@ -3,7 +3,7 @@ import "../index.scss";
 import { FaTrashAlt, FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const Porpuse = ({ data, deletePorpuse, completePorpuse }) => {
+const Purpose = ({ data, deletePurpose, completePurpose }) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -13,32 +13,32 @@ const Porpuse = ({ data, deletePorpuse, completePorpuse }) => {
   }
 
   return (
-    <motion.article className="porpuse-container">
+    <motion.article className="purpose-container">
       <motion.div 
-        className="porpuse"
+        className="purpose"
         style={{ background: data.color }}
         initial={{ height: 65 }}
         animate={ isOpen ? "open" : "closed" }
         variants={variants}
       >
         <motion.div 
-          className="porpuse__data"
+          className="purpose__data"
           onClick={ () => { setIsOpen(!isOpen) } }
         >
           <h2 className="data__title">{data.name}</h2>
           <span className="data__date">{data.date}</span>
           <p className="data__description">{data.description}</p>
         </motion.div>
-        <div className="porpuse__controls">
+        <div className="purpose__controls">
           <button 
             className="controls__button"
-            onClick={() => { deletePorpuse(data.id) }}
+            onClick={() => { deletePurpose(data.id) }}
           >
             <FaTrashAlt className="button__icon" />
           </button>
           <button 
             className="controls__button"
-            onClick={() => { completePorpuse(data.id) }}
+            onClick={() => { completePurpose(data.id) }}
           >
             <FaCheck className="button__icon" />
           </button>
@@ -56,4 +56,4 @@ const Porpuse = ({ data, deletePorpuse, completePorpuse }) => {
   );
 };
 
-export default Porpuse;
+export default Purpose;

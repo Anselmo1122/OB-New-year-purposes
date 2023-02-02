@@ -288,7 +288,7 @@ input[type=file]::after {
   font-size: 1.3rem;
 }
 
-.porpuse-container {
+.purpose-container {
   width: 100%;
   min-width: 200px;
   position: relative;
@@ -301,7 +301,7 @@ input[type=file]::after {
   transform: rotate(-5deg);
 }
 
-.porpuse {
+.purpose {
   height: 70px;
   width: 80%;
   padding: 1rem;
@@ -312,29 +312,29 @@ input[type=file]::after {
   box-shadow: 5px 1px 10px 0 #292929;
   border-bottom: 1px solid #ffffff;
 }
-.porpuse .porpuse__data {
+.purpose .purpose__data {
   position: relative;
   z-index: 1;
   cursor: pointer;
 }
-.porpuse .porpuse__data .data__title {
+.purpose .purpose__data .data__title {
   font-weight: 500;
   line-height: 0.9;
 }
-.porpuse .porpuse__data .data__date {
+.purpose .purpose__data .data__date {
   font-size: 0.8rem;
 }
-.porpuse .porpuse__data .data__description {
+.purpose .purpose__data .data__description {
   margin: 1rem 0;
 }
-.porpuse .porpuse__controls {
+.purpose .purpose__controls {
   position: relative;
   z-index: 1;
   margin-top: 2rem;
   display: flex;
   justify-content: flex-end;
 }
-.porpuse .porpuse__controls .controls__button {
+.purpose .purpose__controls .controls__button {
   margin: 0 0.5rem;
   padding: 0.3rem 1rem;
   font-size: 1.2rem;
@@ -344,7 +344,7 @@ input[type=file]::after {
   border: 2px solid #a5486c;
   box-shadow: 1px 1px 10px 0 #353535;
 }
-.porpuse img {
+.purpose img {
   width: 50%;
   position: absolute;
   top: 0;
@@ -352,7 +352,7 @@ input[type=file]::after {
   filter: opacity(0.3) grayscale(40%);
 }
 
-.porpuse:nth-child(odd) {
+.purpose:nth-child(odd) {
   background: #586d94;
   color: #acacac;
 }

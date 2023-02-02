@@ -7,24 +7,24 @@ import "../index.scss";
 
 // TODO: validar mejor los datos del formulario.
 
-const PorpuseForm = ({ porpuse }) => {
+const PurposeForm = ({ purpose }) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const nameRef = useRef();
-  const descriptionRef = useRef();
-  const imageRef = useRef();
-  const colorRef = useRef()
+  let nameRef = useRef();
+  let descriptionRef = useRef();
+  let imageRef = useRef();
+  let colorRef = useRef()
 
-  const addPorpuse = (e) => {
+  const addPurpose = (e) => {
     e.preventDefault();
 
-    const imgURL = 
+    let imgURL = 
       imageRef.current.files[0]
         ? URL.createObjectURL(imageRef.current.files[0])
         : undefined
 
-    let newPorpuse = {
+    let newPurpose = {
       id: nanoid(20),
       name: nameRef.current.value,
       description: descriptionRef.current.value,
@@ -34,7 +34,13 @@ const PorpuseForm = ({ porpuse }) => {
       date: new Date().toDateString()
     }
 
-    porpuse.setPorpuses([  newPorpuse, ...porpuse.porpuses ])
+    setIsOpen(!isOpen)
+    purpose.setPurposes([  newPurpose, ...purpose.purposes ])
+
+    nameRef.current.value = ""
+    descriptionRef.current.value = ""
+    imgURL = ""
+    colorRef.current.value = "#000000"
   }
 
   const container = {
@@ -72,7 +78,7 @@ const PorpuseForm = ({ porpuse }) => {
           } 
         />
       </div>
-      <h3 className="form__title">Create a new porpuse</h3>
+      <h3 className="form__title">Create a new purpose</h3>
       <motion.div 
         className="form__input"
         variants={item}
@@ -82,7 +88,7 @@ const PorpuseForm = ({ porpuse }) => {
         <motion.input 
           id="name" 
           type="text" 
-          placeholder="Write porpuse name..." 
+          placeholder="Write purpose name..." 
           required
           autoComplete="off"
           ref={nameRef}
@@ -112,7 +118,7 @@ const PorpuseForm = ({ porpuse }) => {
           id="img"
           type="file"
           accept=".png"
-          placeholder="Select an image that represent your porpuse..."
+          placeholder="Select an image that represent your purpose..."
           ref={imageRef}
           whileFocus={{ scale: 1.05 }}
         />
@@ -125,20 +131,20 @@ const PorpuseForm = ({ porpuse }) => {
         <motion.input
           id="color"
           type="color"
-          placeholder="Select an color that represent your porpuse..."
+          placeholder="Select an color that represent your purpose..."
           ref={colorRef}
           whileFocus={{ scale: 1.05 }}
         />
       </motion.div>
       <button 
         className="form__button"
-        onClick={(e) => { addPorpuse(e) }}
+        onClick={(e) => { addPurpose(e) }}
       >
-        Add porpuse
+        Add purpose
         <IoMdAdd className="button__icon" />
       </button>
     </motion.form>
   );
 };
 
-export default PorpuseForm;
+export default PurposeForm;

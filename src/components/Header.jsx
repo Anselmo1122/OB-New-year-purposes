@@ -27,7 +27,7 @@ const Header = ({ next }) => {
       </a>
       <article className='header__content'>
         <h1 className='content__title'>
-          My Porpuses 
+          My Purposes 
           <br/>
           <span className='title__year'>
             <GiTargetShot className='year__icon' /> 
@@ -35,7 +35,7 @@ const Header = ({ next }) => {
           </span>
         </h1>
         <p className='content__info'>
-          Make a list of your porpuses for this year.
+          Make a list of your purposes for this year.
         </p>
       </article>
       <button onClick={ () => { next.setNext(!next.next )} } className='header__button'>

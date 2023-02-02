@@ -3,41 +3,40 @@ import React, { useState, useEffect } from "react";
 import Confetti from "react-confetti";
 import { BsArrowLeft } from "react-icons/bs";
 import "../index.scss";
-import Porpuse from "./Porpuse";
-import PorpuseForm from "./PorpuseForm";
+import Purpose from "./Purpose";
+import PurposeForm from "./PurposeForm";
 import Rocket from "./Rocket";
 
-
-const initialState = JSON.parse(localStorage.getItem("porpuses"));
+const initialState = JSON.parse(localStorage.getItem("purposes"));
 
 const Dashboard = ({ next }) => {
-  const [porpuses, setPorpuses] = useState(initialState || [])
+  const [purposes, setPurposes] = useState(initialState || [])
   const [width, height] = useWindowSize();
-  const [porpusesCompleted, setPorpusesCompleted] = useState(false)
+  const [purposesCompleted, setPurposesCompleted] = useState(false)
 
   useEffect(() => {
-    window.localStorage.setItem("porpuses", JSON.stringify(porpuses), [porpuses])
+    window.localStorage.setItem("purposes", JSON.stringify(purposes), [purposes])
   })
 
-  const deletePorpuse = (id) => {
-    const currentPurposes = porpuses.filter((porpuse) => porpuse.id !== id);
-    setPorpuses(currentPurposes);
+  const deletePurpose = (id) => {
+    const currentPurposes = purposes.filter((purpose) => purpose.id !== id);
+    setPurposes(currentPurposes);
   }
 
-  const completePorpuse = (id) => {
-    const currentPurposes = porpuses.map((porpuse)=>{
-      if(porpuse.id === id) porpuse.complete = !porpuse.complete;
-      return porpuse;
+  const completePurpose = (id) => {
+    const currentPurposes = purposes.map((purpose)=>{
+      if(purpose.id === id) purpose.complete = !purpose.complete;
+      return purpose;
     })
-    setPorpuses(currentPurposes);
+    setPurposes(currentPurposes);
   }
 
-  if (porpusesCompleted) setTimeout(() => {
-    const currentPurposes = porpuses.map((porpuse)=>{
-      if(porpuse.complete === true) porpuse.complete = !porpuse.complete;
-      return porpuse;
+  if (purposesCompleted) setTimeout(() => {
+    const currentPurposes = purposes.map((purpose)=>{
+      if(purpose.complete === true) purpose.complete = !purpose.complete;
+      return purpose;
     })
-    setPorpuses(currentPurposes);
+    setPurposes(currentPurposes);
     next.setNext(!next.next)
   }, 15000)
 
@@ -46,18 +45,18 @@ const Dashboard = ({ next }) => {
       <button className="dashboard__button" onClick={() => { next.setNext(!next.next) }}>
         <BsArrowLeft className='button__icon' />
       </button>
-      <PorpuseForm porpuse={{ porpuses, setPorpuses }} />
+      <PurposeForm purpose={{ purposes, setPurposes }} />
       <div className="dashboard__content">
         <section className="list">
           {
-            porpuses.length > 0 
-              ? porpuses.map((porpuse, id) => {
+            purposes.length > 0 
+              ? purposes.map((purpose, id) => {
               return (
-                <Porpuse 
+                <Purpose 
                   key={ id }
-                  data={ porpuse } 
-                  deletePorpuse={ deletePorpuse }
-                  completePorpuse={ completePorpuse }
+                  data={ purpose } 
+                  deletePurpose={ deletePurpose }
+                  completePurpose={ completePurpose }
                 />
               )
               })
@@ -65,16 +64,16 @@ const Dashboard = ({ next }) => {
           }
         </section>
         <Rocket 
-          porpuse={{ porpuses, setPorpuses }}
-          completed={setPorpusesCompleted}
+          purpose={{ purposes, setPurposes }}
+          completed={setPurposesCompleted}
           redirect={next}
         />
         {
-          porpusesCompleted
+          purposesCompleted
             ? <Confetti 
                 width={width}
                 height={height}
-                run={porpusesCompleted}
+                run={purposesCompleted}
                 tweenDuration={16000}
               />
             : ""
