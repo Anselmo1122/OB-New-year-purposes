@@ -43,7 +43,9 @@ const Purpose = ({ data, deletePurpose, completePurpose }) => {
             <FaCheck className="button__icon" />
           </button>
         </div>
-        {data.image ? <img src={data.image} alt={data.name} /> : ""}
+        {
+          data.image ? <img src={data.image} alt={data.name} /> : ""
+        }
       </motion.div>
       <div 
         className="folder"

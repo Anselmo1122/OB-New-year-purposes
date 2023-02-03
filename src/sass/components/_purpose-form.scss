@@ -2,12 +2,11 @@
 @use "../utilities/variables";
 
 .form {
-    width: 90%;
+    width: 75%;
     max-width: 500px;
-    margin: 0 auto;
     position: fixed;
     bottom: 1rem;
-    right: 50%;
+    right: 41%;
     z-index: 3;
     transform: translateX(50%);
     padding: 1rem;
@@ -39,7 +38,7 @@
         left: 100%;
         z-index: -1;
         border-bottom-left-radius: 2rem;
-        box-shadow: -12px 12px 0 10px variables.$color-contrast;
+        box-shadow: -19px 15px 0 14px variables.$color-contrast;
         padding: 1rem;
     }
     .form__button-display::before {
@@ -49,7 +48,7 @@
         right: 100%;
         z-index: -1;
         border-bottom-right-radius: 2rem;
-        box-shadow: 12px 12px 0 10px variables.$color-contrast;
+        box-shadow: 19px 15px 0 14px variables.$color-contrast;
         padding: 1rem;
     }
 
@@ -60,6 +59,8 @@
     }
 
     .form__input {
+        position: relative;
+
         label {
             margin-bottom: .4rem;
             padding: 0 .5rem;
@@ -67,6 +68,7 @@
             background-color: variables.$color-secondary;
             color: variables.$color-red;
         }
+
         #name {
             padding: .5rem;
             border-radius: .5rem;
@@ -76,7 +78,16 @@
             border-radius: .5rem;
         }
         #image::before {
-            border-radius: 1rem;
+            border-radius: .4rem;
+        }
+
+        .input__message {
+            user-select: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: 500;
+            color: #ff004c6c;
         }
     }
 
@@ -94,5 +105,12 @@
             margin-left: .4rem;
             font-size: 1.3rem;
         }
+    }
+}
+
+@media only screen and (min-width: 916px) {
+    .form {
+        width: 90%;
+        right: 50%;
     }
 }

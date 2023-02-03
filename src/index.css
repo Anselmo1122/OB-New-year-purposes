@@ -13,6 +13,27 @@ body {
   background-size: cover;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #acacac;
+  border: 1px solid #a5486c;
+  border-radius: 1rem;
+}
+
+::-moz-selection {
+  color: #a5486c;
+  background-color: #666666;
+}
+
+::selection {
+  color: #a5486c;
+  background-color: #666666;
+}
+
 h1 {
   line-height: 1.2;
 }
@@ -42,6 +63,11 @@ textarea {
   font-family: "Prompt", sans-serif;
 }
 
+input:focus,
+textarea:focus {
+  outline: 1px solid #a5486c;
+}
+
 textarea {
   resize: none;
 }
@@ -59,15 +85,16 @@ textarea::placeholder {
 }
 
 input[type=file] {
+  cursor: pointer;
   position: relative;
+  border-radius: 0.5rem;
 }
 
 input[type=file]::before {
   content: "";
   color: rgb(255, 255, 255);
   position: absolute;
-  width: 91%;
-  border-radius: 6px;
+  width: 94%;
   border: 11px solid;
 }
 
@@ -81,15 +108,29 @@ input[type=file]::after {
   z-index: 2;
 }
 
+input[type=color] {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
 ::-moz-placeholder {
+  -moz-user-select: none;
+       user-select: none;
   color: #acacac;
 }
 
 :-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
   color: #acacac;
 }
 
 ::placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: #acacac;
 }
 
@@ -186,7 +227,6 @@ input[type=file]::after {
   justify-content: flex-end;
 }
 #dashboard .dashboard__content .list {
-  margin: 0 auto;
   max-width: 600px;
   width: 80%;
   display: flex;
@@ -199,14 +239,22 @@ input[type=file]::after {
   font-size: 1.5rem;
   margin: 30vh auto;
 }
+#dashboard .confetti {
+  position: fixed !important;
+  inset: 0px;
+}
 
+@media only screen and (min-width: 916px) {
+  .list {
+    margin: 0 auto;
+  }
+}
 .form {
-  width: 90%;
+  width: 75%;
   max-width: 500px;
-  margin: 0 auto;
   position: fixed;
   bottom: 1rem;
-  right: 50%;
+  right: 41%;
   z-index: 3;
   transform: translateX(50%);
   padding: 1rem;
@@ -237,7 +285,7 @@ input[type=file]::after {
   left: 100%;
   z-index: -1;
   border-bottom-left-radius: 2rem;
-  box-shadow: -12px 12px 0 10px #acacac;
+  box-shadow: -19px 15px 0 14px #acacac;
   padding: 1rem;
 }
 .form .form__button-display::before {
@@ -247,13 +295,16 @@ input[type=file]::after {
   right: 100%;
   z-index: -1;
   border-bottom-right-radius: 2rem;
-  box-shadow: 12px 12px 0 10px #acacac;
+  box-shadow: 19px 15px 0 14px #acacac;
   padding: 1rem;
 }
 .form .form__title {
   margin-bottom: 1rem;
   text-align: center;
   font: 500 normal 1.5rem "Prompt", sans-serif;
+}
+.form .form__input {
+  position: relative;
 }
 .form .form__input label {
   margin-bottom: 0.4rem;
@@ -271,7 +322,18 @@ input[type=file]::after {
   border-radius: 0.5rem;
 }
 .form .form__input #image::before {
-  border-radius: 1rem;
+  border-radius: 0.4rem;
+}
+.form .form__input .input__message {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 500;
+  color: rgba(255, 0, 76, 0.4235294118);
 }
 .form .form__button {
   border-radius: 1.2rem;
@@ -288,6 +350,12 @@ input[type=file]::after {
   font-size: 1.3rem;
 }
 
+@media only screen and (min-width: 916px) {
+  .form {
+    width: 90%;
+    right: 50%;
+  }
+}
 .purpose-container {
   width: 100%;
   min-width: 200px;
@@ -420,5 +488,10 @@ input[type=file]::after {
 @media only screen and (min-width: 1200px) {
   .rocket {
     left: 20%;
+  }
+}
+@media only screen and (min-width: 916px) {
+  .rocket {
+    left: 10%;
   }
 }/*# sourceMappingURL=index.css.map */

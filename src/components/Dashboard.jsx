@@ -60,7 +60,9 @@ const Dashboard = ({ next }) => {
                 />
               )
               })
-              : <p className="message">Add purposes to <br /> the list.</p>
+              : <p className="message" style={{ userSelect: "none" }}>
+                Add purposes to <br /> the list.
+              </p>
           }
         </section>
         <Rocket 
@@ -75,6 +77,17 @@ const Dashboard = ({ next }) => {
                 height={height}
                 run={purposesCompleted}
                 tweenDuration={16000}
+                className="confetti"
+                colors={[
+                  "#ffffff",
+                  "#00eeff",
+                  "#880000",
+                  "#223355",
+                  "#900088",
+                  "#f234ee",
+                  "#ff8800",
+                  "#00fca8"
+                ]}
               />
             : ""
         }
