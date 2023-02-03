@@ -1,5 +1,5 @@
 import { useWindowSize } from "@react-hook/window-size";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Confetti from "react-confetti";
 import { BsArrowLeft } from "react-icons/bs";
 import "../index.scss";
@@ -7,36 +7,31 @@ import Purpose from "./Purpose";
 import PurposeForm from "./PurposeForm";
 import Rocket from "./Rocket";
 
-const initialState = JSON.parse(localStorage.getItem("purposes"));
 
-const Dashboard = ({ next }) => {
-  const [purposes, setPurposes] = useState(initialState || [])
+const Dashboard = ({ next, purpose }) => {
+
   const [width, height] = useWindowSize();
   const [purposesCompleted, setPurposesCompleted] = useState(false)
 
-  useEffect(() => {
-    window.localStorage.setItem("purposes", JSON.stringify(purposes), [purposes])
-  })
-
   const deletePurpose = (id) => {
-    const currentPurposes = purposes.filter((purpose) => purpose.id !== id);
-    setPurposes(currentPurposes);
+    const currentPurposes = purpose.purposes.filter((purpose) => purpose.id !== id);
+    purpose.setPurposes(currentPurposes);
   }
 
   const completePurpose = (id) => {
-    const currentPurposes = purposes.map((purpose)=>{
+    const currentPurposes = purpose.purposes.map((purpose)=>{
       if(purpose.id === id) purpose.complete = !purpose.complete;
       return purpose;
     })
-    setPurposes(currentPurposes);
+    purpose.setPurposes(currentPurposes);
   }
 
   if (purposesCompleted) setTimeout(() => {
-    const currentPurposes = purposes.map((purpose)=>{
+    const currentPurposes = purpose.purposes.map((purpose)=>{
       if(purpose.complete === true) purpose.complete = !purpose.complete;
       return purpose;
     })
-    setPurposes(currentPurposes);
+    purpose.setPurposes(currentPurposes);
     next.setNext(!next.next)
   }, 15000)
 
@@ -45,12 +40,12 @@ const Dashboard = ({ next }) => {
       <button className="dashboard__button" onClick={() => { next.setNext(!next.next) }}>
         <BsArrowLeft className='button__icon' />
       </button>
-      <PurposeForm purpose={{ purposes, setPurposes }} />
+      <PurposeForm purposeState={ purpose } />
       <div className="dashboard__content">
         <section className="list">
           {
-            purposes.length > 0 
-              ? purposes.map((purpose, id) => {
+            purpose.purposes.length > 0 
+              ? purpose.purposes.map((purpose, id) => {
               return (
                 <Purpose 
                   key={ id }
@@ -66,7 +61,7 @@ const Dashboard = ({ next }) => {
           }
         </section>
         <Rocket 
-          purpose={{ purposes, setPurposes }}
+          purposeState={purpose.purposes}
           completed={setPurposesCompleted}
           redirect={next}
         />

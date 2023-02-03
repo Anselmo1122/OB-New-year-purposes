@@ -3,13 +3,13 @@ import rocketImg from "../assets/rocket.png";
 import "../index.scss";
 import { motion } from 'framer-motion';
 
-const Rocket = ({ purpose, completed }) => {
-  const purposesCompleted = purpose.purposes.filter((purpose) => purpose.complete === true)
+const Rocket = ({ purposeState, completed }) => {
+  const purposesCompleted = purposeState.filter((purpose) => purpose.complete === true)
   
   const getPercentage = () => {
     let percentage = `${
-      purpose.purposes.lenght !== 0 && purposesCompleted !== 0
-        ? (100 / (purpose.purposes.length / purposesCompleted.length) - 30)
+      purposeState.lenght !== 0 && purposesCompleted !== 0
+        ? (100 / (purposeState.length / purposesCompleted.length) - 30)
         : -20
     }%`
     if (percentage === "70%") {

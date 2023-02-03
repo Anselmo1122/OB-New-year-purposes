@@ -12,7 +12,7 @@
 
 **Project screenshot:**
 
-<div style="tex-align: center" center>
+<div center>
     <img src="./src/assets/screen.png" alt="Project screenshot" />
 </div>
 
@@ -47,3 +47,7 @@ npm install
 ```
 
 Start the server
+
+```bash
+npm start
+```
